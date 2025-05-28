@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div>
+                <div class="title">.Felipe<br><span class="camo">.</span>Muñiz Peña</div>
+                <div class="shapes svg-container">
+                    <svg class="shape rotating-svg" viewBox="0 0 100 100" id="svg_test">
+                        <circle cx="50" cy="50" r="8" stroke="#fff" fill="white" />
+                        <circle cx="50" cy="50" r="28" stroke="#fff" fill="none" />
+                        <rect x="20" y="20" width="60" height="60" stroke="#fff" fill="none"
+                            transform="rotate(45 50 50)" />
+                    </svg>
+                    <!-- <svg class="shape rotating-svg" viewBox="0 0 100 100">
+                        <rect x="20" y="20" width="60" height="60" stroke="#fff" fill="none"
+                            transform="rotate(45 50 50)" />
+                    </svg>
+                    <svg class="shape rotating-svg" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="28" stroke="#fff" fill="none" />
+                    </svg>
+                    <svg class="shape rotating-svg" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="8" stroke="#fff" fill="white" />
+                    </svg> -->
+                    <!-- <svg class="shape rotating-svg" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="30" stroke="#fff" fill="none" />
+                        <rect x="20" y="20" width="60" height="60" stroke="#fff" fill="none"
+                            transform="rotate(45 50 50)" />
+                    </svg>
+                    <svg class="shape rotating-svg" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="30" stroke="#fff" fill="none" />
+                        <rect x="20" y="20" width="60" height="60" stroke="#fff" fill="none"
+                            transform="rotate(45 50 50)" />
+                    </svg> -->
+                </div>
+            </div>
+            <div id="quote" class="text_block">
+                <!-- There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                alteration in some form, by injected humour, or randomised words which don't look even slightly
+                believable. -->
+            </div>
+        </div>
+        <div class="main">
+            <div class="navbar" id="navbar">
+                <!-- <a class="nav_link hover-underline-animation" id="inicio" onclick="changeContent('inicio')">inicio</a> -->
+                <a class="nav_link hover-underline-animation" id="sobre_mi" onclick="changeContent('sobre_mi')">sobre
+                    mí</a>
+                <a class="nav_link hover-underline-animation" id="habilidades"
+                    onclick="changeContent('habilidades')">habilidades</a>
+                <a class="nav_link hover-underline-animation" id="contacto"
+                    onclick="changeContent('contacto')">contacto</a>
+            </div>
+            <div class="visual">
+                <div id="content" class="text_block"></div>
+                <!-- <div><img src="./php.png" alt="php" class="logo"></div> -->
+                <div id="section_name"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- <script src="./myscript.js"></script> -->
+
+<script>
+    const content = document.getElementById('content');
+    const section_name = document.getElementById('section_name');
+
+    const quote = document.getElementById('quote');
+
+    const quotes = ["The good thing about science is that it's true whether or not you believe in it.", "Science is the process that takes us from confusion to understanding in a manner that’s precise, predictive, and reliable—a transformation, for those lucky enough to experience it, that is empowering and emotional.", "I don't want to make a smarter computer; I want to use computers to make people smarter.", "The computer was born to solve problems that did not exist before.", "While programming may evolve through higher levels of abstraction, the core skills and understanding of computer science remain essential."];
+
+    const authors = ["Neil deGrasse Tyson", "Brian Greene", "David Canfield Smith", "Grace Hopper", "Aparna Chennapragada"];
+
+    function generateRandomNumber() {
+
+        quote.style.opacity = "0";
+
+        setTimeout(() => {
+            const number = Math.floor(Math.random() * 5);
+            console.log("Random number:", number);
+            quote.innerHTML = "<p>\"" + quotes[number] + "\"</p><p id=\"author\">- " + authors[number] + "</p>";
+            quote.style.opacity = "1";
+        }, 1000);
+
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        // setTimeout(generateRandomNumber, 2000);
+        generateRandomNumber();
+        setInterval(generateRandomNumber, 20000); // Every 10 seconds
+    });
+
+    const data = {
+        inicio: '<p>Mientras estás leyendo esto me encuentro finalizando mi formación como desarrollador web a través de la Junta de Andalucía, ' +
+            'a la vez que sigo aprendiendo por otros medios.</p>' +
+            '<p>A día de hoy me encuentro en la búsqueda de prácticas, así como llevando a cabo mi proyecto de final de formación.<br></p>',
+        sobre_mi: '<p>Acabo de finalizar mi formación en Desarrollo ' +
+            'de Aplicaciones Web, además de mi formación constante y paralela a través de otros medios.<br> <br>' +
+            'Durante varios años me formé como Ingeniero en Diseño Industrial y Desarrollo de Producto, pero decidí cambiar de ' +
+            'dirección hacia algo que me generaba mucho más interés.<br><br>' +
+            'Soy un apasionado de las matemáticas y, de alguna manera, el poder aplicarlas a las ' +
+            'metodologías y herramientas vinculadas a la programación y el desarrollo de aplicaciones ha sido para mí algo fundamental. ' +
+            'Desde entonces he visto como mis ganas de aprender han ido a más y más hasta el día de hoy.<br><br>' +
+            'Previamente a comenzar mi formación he llevado a cabo varios trabajos en los últimos años que, si bien no se ' +
+            'ubican en este marco laboral, me han enseñado a trabajar tanto en equipo como en solitario, y a tratar ' +
+            'con clientes y compañeros. En ellos aprendí también que soy una persona con un grado de ' +
+            'compromiso muy alto, responsable y seria.<br><br>Si considero que puedo hacer algo, me ofrezco para ello. ' +
+            'Si considero que no, aprendo hasta que deje que de ser así.</p>',
+        habilidades: '<p>Mediante lo aprendido tanto en mi formación académica como en aquella que realizo de manera paralela he aprendido a trabajar con múltiples herramientas:</p>' +
+            '<ul id="lista_habilidades"><li>Lenguajes de programación como Python, PHP, Java, Javascript, HTML y CSS.</li>' +
+            '<li>Desarrollo backend con frameworks como Laravel, FastAPI y SpringBoot.</li>' +
+            '<li>Control de versiones.</li>' +
+            '<li>Diseño y mantenimiento de bases de datos relacionales con SQL y PL/SQL: MySQL, PostgreSQL, SQLite y MariaDB.</li>' +
+            '<li>Generación de contenido con IA generativa a través de la API de OpenAI </li>' +
+            '<li> Prompt engineering para mejoras de precisión y efi ciencia.</li>' +
+            '<li>Formación completa en las áreas troncales de la ingeniería.</li>' +
+            '<li>Nivel profesional de Inglés · Certificado Aptis C.</li>' +
+            '<li>Nivel profesional de Adobe Illustrator y otros programas de diseño vectorial.</li></ul>' +
+            '<p>En mi tiempo libre busco pequeños proyectos que poder llevar a cabo, centrados principalmente en el tratamiento de datos, uso de Inteligencia Artificial y generación de contenido a través de valores numéricos.</p>' +
+            '<p><a href="https://github.com/felmunpen" target="_blank" rel="noopener noreferrer" style="font-weight:bold;">¡Estoy en Github!</a></p>',
+        contacto: '<div style="padding: 5vh;"><ul><li><a href="https://www.linkedin.com/in/felipe-muniz-pena/" target="_blank" rel="noopener noreferrer" style="font-weight:bold;">Mi perfil en LinkedIn.</a></li>' +
+            '<li>felmunpen@gmail.com</li>' +
+            '<li>655 549 548</li>' +
+            '<li><a href="./Felipe_Muniz_Pena_CV.pdf" target="_blank" rel="noopener noreferrer" style="font-weight:bold;">Consultar CV.</a></li></ul><div>'
+    };
+
+    content.innerHTML = data['sobre_mi'];
+
+    function changeContent(seccion) {
+        content.style.opacity = "0";
+        section_name.style.opacity = "0";
+
+        setTimeout(() => {
+            content.innerHTML = data[seccion];
+            section_name.innerHTML = seccion + ".";
+            content.style.opacity = "1";
+            section_name.style.opacity = "1";
+        }, 300);
+    }
+
+    var tab_number = 0;
+
+    var svg_test = document.getElementById('svg_test');
+
+    document.getElementById("navbar").addEventListener("click", function (e) {
+        const hijo = e.target;
+        const padre = hijo.parentElement;
+        const hijos = Array.from(padre.children);
+        const index = hijos.indexOf(hijo);
+
+        // console.log("Estás en la tab: ", tab_number)
+        // console.log("Has clicado en la tab:", index);
+
+        // svg_test.classList.remove("rotation");
+        // void svg_test.offsetWidth;
+
+        // setTimeout(() => {
+        //     svg_test.classList.add("rotation");
+        // }, 100)
+
+        svg_test.classList.remove("rotation-right");
+        svg_test.classList.remove("rotation-left");
+        void svg_test.offsetWidth;
+
+
+        if (index >= tab_number) {
+            /*Rotación a la derecha*/
+            // svg_test.classList.remove("rotation-right");
+            // void svg_test.offsetWidth;
+            setTimeout(() => {
+                svg_test.classList.add("rotation-right");
+            }, 100)
+        } else if (index < tab_number) {
+            /*Rotación a la izquierda*/
+            // svg_test.classList.remove("rotation-left");
+            // void svg_test.offsetWidth;
+            setTimeout(() => {
+                svg_test.classList.add("rotation-left");
+            }, 100)
+        }
+
+        tab_number = index;
+
+        // console.log("Este elemento es el hijo número:", index);
+    });
+</script>
+
+</html>
